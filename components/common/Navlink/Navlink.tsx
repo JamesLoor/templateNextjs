@@ -6,27 +6,20 @@ type Props = {
   id: string,
   name: string,
   url: string,
-  toggleSidebar: () => void
+  className?: string,
+  isSidebarOpen: boolean
+  toggleSidebar(isSidebarOpen: boolean): void
 }
 
-const NavlinkStyled = styled.li`
-  a {
-    color: ${({ theme }) => theme.secundaryDark};
-    :hover {
-      color: ${({ theme }) => theme.secundaryLight};
-    }
-  }
-`
-
-const Navlink: React.FC<Props> = ({ id, name, url, toggleSidebar }) => {
+const Navlink: React.FC<Props> = ({ id, name, url, toggleSidebar, isSidebarOpen, ...props }) => {
   return (
-    <NavlinkStyled id={id} onClick={toggleSidebar}>
+    <li id={id} onClick={() => toggleSidebar(isSidebarOpen)} {...props}>
       <Link href={url}>
         <a aria-label={name}>
           {name}
         </a>
       </Link>
-    </NavlinkStyled>
+    </li>
   )
 }
 
