@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { homeData } from '@data/home.data'
 
 // Components
-import { Section } from '@components/common'
+import { Button, Section } from '@components/common'
 
 const HomeStyled = styled.div`
   .hero {
